@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+ <html data-ng-app="App"> 
+ <head>
+   <title>AngularJs CheckBox 复选框操作</title>
+   <script type="text/javascript" src="http://cdn.bootcss.com/angular.js/1.3.0/angular.min.js"></script> 
+   <script src="app.js"></script> 
+ </head> 
+ <body data-ng-controller="AddStyleCtrl"> 
+   
+   <div>Choose Tags</div>   
+   <div> 
+     <div>You have choosen:</div> 
+     <hr> 
+     <label data-ng-repeat="selectedTag in selectedTags"> 
+       (({{selectedTag}})) 
+     </label> 
+     <hr> 
+     <div data-ng-repeat="category in tagcategories"> 
+       <div>{{ category.name }}</div> 
+       <div data-ng-repeat="tag in category.tags"> 
+         <div> 
+           <input type="checkbox" id={{tag.id}} name="{{tag.name}}" ng-checked="isSelected(tag.id)" ng-click="updateSelection($event,tag.id)"> 
+           {{ tag.name }} 
+         </div> 
+       </div> 
+       <hr> 
+     </div> 
+   </div> 
+   
+ <pre>{{selected|json}}</pre> 
+ <pre>{{selectedTags|json}}</pre> 
+   
+ </body> 
+ </html> 
